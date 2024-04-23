@@ -6,7 +6,7 @@ const LanguageDropdown = () => {
   const handleClick = () => setIsClick(!isClick)
 
   return (
-    <button onClick={handleClick} className='relative flex items-center'>
+    <div onClick={handleClick} className='relative flex items-center'>
       <img src='/image/indoFlag.png' alt='flag' width={20} height={20} className='mr-[5px]'/>
       <span>ID</span>
       <AngelDown size={20} color={'white'} />
@@ -15,7 +15,7 @@ const LanguageDropdown = () => {
         <button className='p-[10px] hover:bg-gray-200 rounded-[5px] w-[100%]'>Indonesia</button>
         <button className='p-[10px] hover:bg-gray-200 rounded-[5px] w-[100%]'>English</button>
       </div>
-    </button>
+    </div>
   )
 }
 
