@@ -78,7 +78,7 @@ export const BookingForm = () => {
 
       <div className='flex flex-col gap-[13px] w-[300px]'>
         <div className='flex items-center justify-between'>
-          <h3>Depart - Return</h3>
+          <h3>Checkin - Checkout</h3>
           <div className='flex items-center gap-[3px]'>
             <span className='text-[12px] text-[#5A5A5A]'>Roundtrip?</span>
             <Toggle />
@@ -93,11 +93,11 @@ export const BookingForm = () => {
       </div>
 
       <div className='flex flex-col gap-[13px] w-[300px]'>
-        <h3>Passenger - Class</h3>
+        <h3>Guests - Rooms</h3>
         <button className='bg-[#F7FAFF] flex items-center justify-between p-[12px]'>
           <div className='flex items-center gap-[8px]'>
             <Seats size={20} color='blue' />
-            <span className='text-[14px]'>1 Passenger, Economy</span>
+            <span className='text-[14px]'>1 Guest, Luxury</span>
           </div>
         </button>
       </div>

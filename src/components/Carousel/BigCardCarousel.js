@@ -35,7 +35,7 @@ const BigCardCarousel = () => {
       onMouseLeave={handleMouseUp}
       style={{ scrollSnapType: 'x mandatory', scrollSnapAlign: 'center', scrollbarWidth: 'none' }}
     >
-      <div className="w-fit pr-[50px] flex items-center gap-x-[26px]">
+      <div className="w-fit pr-[50px] flex items-center gap-x-[26px] pb-[30px]">
         {
           Offers.map((item, idx) => {
             return (

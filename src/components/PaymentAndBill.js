@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { AngelDown } from '../utils/Icons';
 
-const TabsContent = () => {
+const TabsContent = ({content}) => {
   const [value, setValue] = useState('');
   const handleChange = (e) => setValue(e.target.value)
 
   return (
     <form className='flex items-end justify-between'>
       <div className='flex flex-col gap-[11px]'>
-        <label for='number' className='text-[16px] w-[480px]'>Phone Number</label>
+        <label for='number' className='text-[16px] w-[480px]'>{content} Number</label>
         <div className='border rounded-[11px] p-[16px] flex items-center justify-between'>
           <input type='number' placeholder='Phone number' value={value} onChange={handleChange} autoComplete='off' className='focus:outline-none'/>
           <img src='/image/Logo_IM3.png' alt='logo' />
@@ -33,47 +33,47 @@ const TabsContent = () => {
 const Tabs = [
   {
     title: 'Pulsa',
-    content: <TabsContent />
+    content: <TabsContent content={'Phone'} />
   },
   {
     title: 'Game',
-    content: <TabsContent />
+    content: <TabsContent content={'Game'}/>
   },
   {
     title: 'Paket',
-    content: <TabsContent />
+    content: <TabsContent content={'Peket'}/>
   },
   {
     title: 'PLN Prepaid',
-    content: <TabsContent />
+    content: <TabsContent content={'PLN'}/>
   },
   {
     title: 'E-wallet',
-    content: <TabsContent />
+    content: <TabsContent content={'E-wallet'}/>
   },
   {
     title: 'Pascabayar',
-    content: <TabsContent />
+    content: <TabsContent content={'Pasca'}/>
   },
   {
     title: 'BPJS',
-    content: <TabsContent />
+    content: <TabsContent content={'BPJS'}/>
   },
   {
     title: 'PDAM',
-    content: <TabsContent />
+    content: <TabsContent content={'PDAM'}/>
   },
   {
     title: 'PLN Postpaid',
-    content: <TabsContent />
+    content: <TabsContent content={'PLN Post'}/>
   },
   {
     title: 'Internet',
-    content: <TabsContent />
+    content: <TabsContent content={'Internet'}/>
   },
   {
     title: 'TV',
-    content: <TabsContent />
+    content: <TabsContent content={'TV'}/>
   },
 ]
 

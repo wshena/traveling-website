@@ -18,7 +18,7 @@ const SmallCard = ({name, image, address, rating, star, price, discount, fav}) =
   const starsArray = Array.from({ length: star }).fill(null);
 
   return (
-    <div className='cursor-pointer bg-white rounded-[17.71px] p-[17px] flex flex-col gap-[26px] w-[370px] h-[470px]' style={{
+    <div className='mb-[30px] cursor-pointer bg-white rounded-[17.71px] p-[17px] flex flex-col gap-[26px] w-[370px] h-[470px]' style={{
       boxShadow: '0px 4.43px 17.71px 0px rgba(158, 158, 158, 0.25)'
     }}>
       <div className='w-[100%] flex items-start justify-end p-[17px] h-[50%] bg-center bg-cover rounded-[8.86px]' style={{
