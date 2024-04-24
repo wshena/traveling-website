@@ -106,3 +106,12 @@ export const RecentlyDestinations = [
     fav: true
   },
 ]
+
+export const Nominal = [
+  '10.000',
+  '20.000',
+  '40.000',
+  '50.000',
+  '80.000',
+  '100.000'
+]

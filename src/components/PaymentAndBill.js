@@ -1,5 +1,47 @@
 import React, { useState } from 'react'
 import { AngelDown } from '../utils/Icons';
+import { FaAngleUp } from 'react-icons/fa';
+import { Nominal } from '../utils/const';
+
+const Dropdown = () => {
+  const [isClick, setIsClick] = useState(false);
+  const [nominal, setNominal] = useState('')
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setIsClick(!isClick);
+  }
+
+  const handleOffClick = (e, nominal) => {
+    e.preventDefault();
+    setIsClick(false);
+    setNominal(nominal)
+  }
+
+  return (
+    <div className='flex flex-col gap-[11px] relative'>
+      <span className='text-[16px] w-[480px]'>Nominal</span>
+      <button onClick={handleClick} className='cursor-pointer border rounded-[11px] p-[16px] flex items-center justify-between'>
+        <span className='text-[16px]'>{nominal ? nominal : 'select'}</span>
+        {isClick ? <FaAngleUp size={24} color='black' /> : <AngelDown size={24} color='black' />}
+      </button>
+
+      <div className={`bg-white rounded-[10px] absolute w-fit text-black flex items-center flex-wrap transition-all duration-500 ease-in-out left-0 ${isClick ? 'top-[100px] opacity-100' : '-top-[250px] opacity-0'}`} style={{
+        boxShadow: '0px 4.43px 17.71px 0px rgba(158, 158, 158, 0.25)'
+      }}>
+        {
+          Nominal.map((item, idx) => {
+            return (
+              <button onClick={(e) => {
+                handleOffClick(e, item);
+              }} key={idx} className='p-[1rem] hover:bg-gray-300'>{item}</button>
+            )
+          })
+        }
+      </div>
+    </div>
+  )
+}
 
 const TabsContent = ({content}) => {
   const [value, setValue] = useState('');
@@ -15,13 +57,7 @@ const TabsContent = ({content}) => {
         </div>
       </div>
 
-      <div className='flex flex-col gap-[11px]'>
-        <label for='number' className='text-[16px] w-[480px]'>Nominal</label>
-        <button className='border rounded-[11px] p-[16px] flex items-center justify-between'>
-          <span className='text-[16px]'>Select</span>
-          <AngelDown size={24} color='black' />
-        </button>
-      </div>
+      <Dropdown />
       
       <div>
         <button className='w-[133px] border-none bg-[#235FD2] rounded-[11px] py-[14px] px-[25px] text-white'>Buy</button>
