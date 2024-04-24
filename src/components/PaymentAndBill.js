@@ -5,7 +5,11 @@ import { Nominal } from '../utils/const';
 
 const Dropdown = () => {
   const [isClick, setIsClick] = useState(false);
-  const [nominal, setNominal] = useState('')
+  const [selectedValue, setSelectedValue] = useState('');
+
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -15,30 +19,23 @@ const Dropdown = () => {
   const handleOffClick = (e, nominal) => {
     e.preventDefault();
     setIsClick(false);
-    setNominal(nominal)
   }
 
   return (
     <div className='flex flex-col gap-[11px] relative'>
-      <span className='text-[16px] w-[480px]'>Nominal</span>
-      <button onClick={handleClick} className='cursor-pointer border rounded-[11px] p-[16px] flex items-center justify-between'>
-        <span className='text-[16px]'>{nominal ? nominal : 'select'}</span>
-        {isClick ? <FaAngleUp size={24} color='black' /> : <AngelDown size={24} color='black' />}
-      </button>
-
-      <div className={`bg-white rounded-[10px] absolute w-fit text-black flex items-center flex-wrap transition-all duration-500 ease-in-out left-0 ${isClick ? 'top-[100px] opacity-100' : '-top-[250px] opacity-0'}`} style={{
-        boxShadow: '0px 4.43px 17.71px 0px rgba(158, 158, 158, 0.25)'
-      }}>
+      <label htmlFor='dropdown' className='text-[16px] w-[480px]'>Nominal</label>
+      <select id='dropdown' value={selectedValue} onChange={handleChange} className={`bg-white rounded-[10px] text-black p-[16px] focus:outline-none border`}>
+        <option value="">Select</option>
         {
           Nominal.map((item, idx) => {
             return (
-              <button onClick={(e) => {
+              <option value={item} onClick={(e) => {
                 handleOffClick(e, item);
-              }} key={idx} className='p-[1rem] hover:bg-gray-300'>{item}</button>
+              }} key={idx} className='p-[1rem] hover:bg-gray-300'>{item}</option>
             )
           })
         }
-      </div>
+      </select>
     </div>
   )
 }
