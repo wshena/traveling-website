@@ -24,7 +24,7 @@ const Dropdown = () => {
   return (
     <div className='flex flex-col gap-[11px] relative'>
       <label htmlFor='dropdown' className='text-[16px] w-[480px]'>Nominal</label>
-      <select id='dropdown' value={selectedValue} onChange={handleChange} className={`bg-white rounded-[10px] text-black p-[16px] focus:outline-none border`}>
+      <select id='dropdown' value={selectedValue} onChange={handleChange} className={`bg-white rounded-[10px] text-black p-[16px] focus:outline-none border cursor-pointer`}>
         <option value="">Select</option>
         {
           Nominal.map((item, idx) => {
@@ -49,7 +49,7 @@ const TabsContent = ({content}) => {
       <div className='flex flex-col gap-[11px]'>
         <label for='number' className='text-[16px] w-[480px]'>{content} Number</label>
         <div className='border rounded-[11px] p-[16px] flex items-center justify-between'>
-          <input type='number' placeholder='Phone number' value={value} onChange={handleChange} autoComplete='off' className='focus:outline-none'/>
+          <input type='text' placeholder='Phone number' value={value} onChange={handleChange} autoComplete='off' className='focus:outline-none'/>
           <img src='/image/Logo_IM3.png' alt='logo' />
         </div>
       </div>
